@@ -35,7 +35,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
         }
 
         .container {
@@ -45,17 +45,9 @@
 
         header {
             width: 100%;
-            margin-bottom: 30px;
+            text-align: center;
+            margin-bottom: 40px;
             position: relative;
-        }
-
-        /* 헤더 상단 영역 (타이틀 + 햄버거 버튼) */
-        .header-bar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            margin-bottom: 20px;
         }
 
         .title {
@@ -63,60 +55,43 @@
             font-weight: 800;
             letter-spacing: -0.5px;
             color: var(--emerald-main);
-            text-align: center;
+            margin-bottom: 24px;
         }
 
-        /* 햄버거 버튼 (기본 PC에서는 숨김) */
+        /* 햄버거 버튼 (기본 숨김) */
         .hamburger-btn {
             display: none;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.9);
             border: 1px solid var(--border-soft);
             border-radius: 12px;
-            width: 42px;
-            height: 42px;
-            font-size: 1.2rem;
-            color: var(--emerald-main);
+            padding: 8px 12px;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(6, 95, 70, 0.08);
+            font-size: 1.5rem;
+            color: var(--emerald-main);
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(6, 95, 70, 0.05);
             transition: all 0.2s ease;
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hamburger-btn:hover {
-            background: var(--emerald-light);
-        }
-
-        /* 데스크톱 네비게이션 스타일 */
-        .nav-wrapper {
-            display: flex;
-            justify-content: center;
-            width: 100%;
         }
 
         nav {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.9);
             border: 1px solid var(--border-soft);
             border-radius: 30px;
-            padding: 6px;
+            padding: 5px;
             backdrop-filter: blur(10px);
             display: inline-flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 4px;
             box-shadow: 0 4px 15px rgba(6, 95, 70, 0.05);
-            transition: all 0.3s ease;
         }
 
         .nav-btn {
             background: transparent;
             color: var(--text-sub);
             border: none;
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 20px;
             cursor: pointer;
             font-size: 0.88rem;
@@ -133,78 +108,42 @@
             box-shadow: 0 2px 8px rgba(6, 95, 70, 0.25);
         }
 
-        /* */
-        /* 모바일 (화면 너비 768px 이하) 반응형 스타일 */
+        /* 모바일 화면 스타일 */
         @media (max-width: 768px) {
             body {
-                padding: 20px 16px;
-            }
-
-            .header-bar {
-                justify-content: space-between;
-                margin-bottom: 12px;
+                padding: 30px 16px;
             }
 
             .title {
-                font-size: 1.6rem;
-                text-align: left;
+                font-size: 1.8rem;
+                margin-bottom: 16px;
             }
 
-            /* 모바일에서 햄버거 버튼 표시 */
             .hamburger-btn {
-                display: flex;
-                position: static;
-                transform: none;
+                display: inline-block;
             }
 
-            .nav-wrapper {
-                width: 100%;
-            }
-
-            /* 모바일 네비게이션 드롭다운 메뉴 */
             nav {
                 display: none;
                 flex-direction: column;
                 width: 100%;
+                margin-top: 12px;
                 border-radius: 16px;
-                padding: 8px;
-                gap: 6px;
-                margin-top: 8px;
-                box-shadow: 0 8px 24px rgba(6, 95, 70, 0.12);
+                padding: 10px;
             }
 
-            nav.open {
+            nav.active {
                 display: flex;
-                animation: slideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             }
 
             .nav-btn {
                 width: 100%;
-                justify-content: flex-start;
-                padding: 12px 16px;
+                justify-content: center;
+                padding: 12px 18px;
                 font-size: 0.95rem;
-                border-radius: 10px;
-            }
-
-            .nav-btn:hover {
-                background: var(--emerald-light);
-                color: var(--emerald-main);
-                box-shadow: none;
             }
         }
 
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-8px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* 카드 콘텐츠 및 세부 요소 스타일 */
         .content-card {
             background: var(--card-bg);
             border: 1px solid var(--border-soft);
@@ -226,6 +165,7 @@
             background: var(--emerald-main);
         }
 
+        /* 프로필 아바타 */
         .profile-avatar-wrapper {
             display: flex;
             justify-content: center;
@@ -299,7 +239,7 @@
 
         .profile-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 10px;
             margin-bottom: 18px;
         }
@@ -383,23 +323,17 @@
 
     <div class="container">
         <header>
-            <div class="header-bar">
-                <h1 class="title">김보경 포트폴리오</h1>
-                <!-- 스마트폰 전용 햄버거 버튼 -->
-                <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()" aria-label="메뉴 열기">
-                    ☰
-                </button>
-            </div>
+            <h1 class="title">김보경 포트폴리오</h1>
             
-            <div class="nav-wrapper">
-                <nav id="navMenu">
-                    <button class="nav-btn" onclick="scrollToSection('home')">🏠 Home</button>
-                    <button class="nav-btn" onclick="scrollToSection('profile')">👤 Profile</button>
-                    <button class="nav-btn" onclick="scrollToSection('projects')">💻 Projects/Skills</button>
-                    <button class="nav-btn" onclick="scrollToSection('growth')">🌱 Growth</button>
-                    <button class="nav-btn" onclick="scrollToSection('contact')">✉️ Contact</button>
-                </nav>
-            </div>
+            <button class="hamburger-btn" onclick="toggleMenu()" aria-label="메뉴 열기/닫기">☰</button>
+
+            <nav id="nav-menu">
+                <button class="nav-btn" onclick="scrollToSection('home')">🏠 Home</button>
+                <button class="nav-btn" onclick="scrollToSection('profile')">👤 Profile</button>
+                <button class="nav-btn" onclick="scrollToSection('projects')">💻 Projects/Skills</button>
+                <button class="nav-btn" onclick="scrollToSection('growth')">🌱 Growth</button>
+                <button class="nav-btn" onclick="scrollToSection('contact')">✉️ Contact</button>
+            </nav>
         </header>
 
         <main>
@@ -482,7 +416,7 @@
                 <div class="section-title">CONTACT</div>
                 <div class="contact-list">
                     <p>📞 전화번호: 010-8137-3385</p>
-                    <p>📧 이메일: bokyung081123@gmail.com</p>
+                    <p>📧 이메일: bokyung0811@gmail.com</p>
                     <p>📷 인스타그램: <a href="https://instagram.com/bx3.7en_" target="_blank">bx3.7en_</a></p>
                 </div>
             </section>
@@ -494,38 +428,29 @@
     </div>
 
     <script>
-        // 모바일 햄버거 메뉴 토글 함수
         function toggleMenu() {
-            const navMenu = document.getElementById('navMenu');
-            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const nav = document.getElementById('nav-menu');
+            const btn = document.querySelector('.hamburger-btn');
+            nav.classList.toggle('active');
             
-            navMenu.classList.toggle('open');
-            
-            // 메뉴 상태에 맞춰 버튼 아이콘 토글 (☰ <-> ✕)
-            if (navMenu.classList.contains('open')) {
-                hamburgerBtn.textContent = '✕';
-                hamburgerBtn.setAttribute('aria-label', '메뉴 닫기');
+            if (nav.classList.contains('active')) {
+                btn.textContent = '✕';
             } else {
-                hamburgerBtn.textContent = '☰';
-                hamburgerBtn.setAttribute('aria-label', '메뉴 열기');
+                btn.textContent = '☰';
             }
         }
 
-        // 스크롤 이동 및 모바일 메뉴 자동 닫기
         function scrollToSection(id) {
             const element = document.getElementById(id);
             if (element) {
                 element.scrollIntoView({ behavior: 'smooth' });
             }
-            
-            // 모바일 메뉴가 열려있을 경우 스크롤 이동 후 자동으로 닫기
-            const navMenu = document.getElementById('navMenu');
-            const hamburgerBtn = document.getElementById('hamburgerBtn');
-            
-            if (navMenu.classList.contains('open')) {
-                navMenu.classList.remove('open');
-                hamburgerBtn.textContent = '☰';
-                hamburgerBtn.setAttribute('aria-label', '메뉴 열기');
+            // 모바일 메뉴 열려있을 때 클릭 시 닫기
+            const nav = document.getElementById('nav-menu');
+            const btn = document.querySelector('.hamburger-btn');
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                btn.textContent = '☰';
             }
         }
     </script>
